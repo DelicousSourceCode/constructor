@@ -24,11 +24,7 @@ function loadMain() {
 ipcMain.on('close-app', () => app.quit())
 ipcMain.on('new-project', () => {
   dialog.showOpenDialog({
-    properties: [
-      'openFile',
-      'multiSelections',
-      'createDirectory'
-    ]
+    properties: ['openDirectory']
   }).then(data => {
     console.log(data.filePaths[0])
     ipcMain.emit('file-selected', data.filePaths[0])
