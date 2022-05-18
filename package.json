@@ -1,0 +1,17 @@
+{
+  "name": "constructor-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "sass --watch src/public/index.scss src/public/dist/index.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^18.2.0",
+    "redis": "^4.1.0"
+  }
+}

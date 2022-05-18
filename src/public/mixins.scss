@@ -1,0 +1,21 @@
+@use 'vars';
+@mixin button($width) {
+  width: $width;
+  height: 45pt;
+  background-color: transparent;
+  border: 2pt solid transparent;
+  padding: 8pt 12pt;
+  border-radius: 500pt;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  transition: vars.$t;
+  cursor: pointer;
+  &:hover {
+    border: 2pt solid vars.$darker;
+  } &:active {
+    background-color: vars.$light;
+    transition: none;
+  }
+}

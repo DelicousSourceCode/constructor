@@ -1,0 +1,155 @@
+@use 'vars';
+@use 'mixins';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot);
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11pt;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga';
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11pt;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f0f0a4;
+  display: none;
+  position: absolute;
+  z-index: 10;
+  &.active {
+    display: block;
+  }
+}
+
+.titlebar {
+  width: 100vw;
+  height: fit-content;
+  padding: 8pt 12pt;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  z-index: 11;
+  top: 0;
+  -webkit-app-region: drag;
+  .close-window {
+    width: 45pt;
+    height: 45pt;
+    background-color: transparent;
+    border: 2pt solid transparent;
+    padding: 8pt 12pt;
+    border-radius: 500pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    transition: vars.$t;
+    cursor: pointer;
+    &:hover {
+      border: 2pt solid vars.$darker;
+    } &:active {
+      background-color: vars.$light;
+      transition: none;
+    }
+  }
+}
+
+.logogroup {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10pt;
+  position: absolute;
+  left: 5vw;
+  .logo-subtitle {
+    width: 100%;
+    color: vars.$dark;
+    padding: 8pt 12pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30pt;
+  }
+}
+
+.toolbar {
+  width: 150pt;
+  height: calc(100vh - 80pt);
+  background-color: vars.$darker;
+  position: absolute;
+  z-index: 10;
+  top: 50pt;
+  left: 0;
+}
+
+.project-menu {
+  width: fit-content;
+  height: fit-content;
+  border: 2pt solid vars.$darker;
+  padding: 15pt 25pt;
+  position: absolute;
+  right: 5vw;
+  .btn {
+    width: fit-content;
+    height: 45pt;
+    background-color: transparent;
+    border: none;
+    padding: 8pt 12pt;
+    border-radius: 500pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 8pt;
+    font-size: 15pt;
+    transition: vars.$t;
+    cursor: pointer;
+    &:active {
+      background-color: vars.$light;
+      transition: none;
+    }
+  }
+}
