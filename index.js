@@ -22,15 +22,15 @@ function loadMain() {
 }
 
 ipcMain.on('close-app', () => app.quit())
-ipcMain.on('new-project', () => {
+ipcMain.on('new-project', e => {
   dialog.showOpenDialog({
     properties: ['openDirectory']
   }).then(data => {
     console.log(data.filePaths[0])
-    ipcMain.emit('file-selected', data.filePaths[0])
+    e.sender.send('file-selected', data.filePaths[0])
   })
 })
 
 app.on('ready', () => process.platform == 'darwin' ? app.dock.setMenu(macDockMenu) : null ).on('ready', loadMain)
-app.on('activate', () => { if (BrowserWindow.getAllWindows().length == 0) loadMain })
-app.on('window-all-closed', () => { if (process.platform == 'darwin') app.quit() })
+app.on('activate', () => BrowserWindow.getAllWindows().length == 0 ? loadMain : null)
+app.on('window-all-closed', () => process.platform != 'darwin' ? app.quit() : null)

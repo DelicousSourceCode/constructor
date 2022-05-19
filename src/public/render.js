@@ -11,6 +11,6 @@ newProjectBtn.addEventListener('click', () => {
   ipcRenderer.send('new-project')
 })
 
-ipcRenderer.on('file-selected', path => console.log(path))
+ipcRenderer.on('file-selected', (e, path) => console.log(path))
 
 closeBtn.addEventListener('click', () => ipcRenderer.send('close-app'))
