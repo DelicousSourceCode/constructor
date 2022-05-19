@@ -12,6 +12,7 @@ function loadMain() {
     width: 1920,
     height: 1080,
     frame: false,
+    roundedCorners: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -19,14 +20,15 @@ function loadMain() {
   })
   window.loadFile('./src/views/index.html')
   window.webContents.on('context-menu', () => ctxMenu.popup())
+  ipcMain.on('close-app', () => window.close())
 }
 
-ipcMain.on('close-app', () => app.quit())
 ipcMain.on('new-project', e => {
   dialog.showOpenDialog({
     properties: ['openDirectory']
   }).then(data => {
-    console.log(data.filePaths[0])
+    if (data.canceled) e.sender.send('selection-cancled')
+    console.log(data.filePaths[0] == undefined ? data.filePaths : null)
     e.sender.send('file-selected', data.filePaths[0])
   })
 })

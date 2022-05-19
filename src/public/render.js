@@ -11,6 +11,9 @@ newProjectBtn.addEventListener('click', () => {
   ipcRenderer.send('new-project')
 })
 
+ipcRenderer.on('selection-cancled', (e, path) => {
+  fileOverlay.classList.remove('active')
+})
 ipcRenderer.on('file-selected', (e, path) => console.log(path))
 
 closeBtn.addEventListener('click', () => ipcRenderer.send('close-app'))
