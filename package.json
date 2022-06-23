@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "watch": "sass --watch src/public/index.scss src/public/dist/index.css",
-    "watch-workspace": "sass --watch src/public/workspace.scss src/public/dist/workspace.css"
+    "watch": "sass --watch src/public/styles/index.scss src/public/dist/index.css",
+    "watch-workspace": "sass --watch src/public/styles/workspace.scss src/public/dist/workspace.css"
   },
   "keywords": [],
   "author": "",
