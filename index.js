@@ -1,18 +1,15 @@
 // @ts-check
-const {
-  app,
-  BrowserWindow,
-  ipcMain,
-  dialog
-} = require('electron')
+const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const { ctxMenu, macDockMenu } = require('./utils/menus')
+const { settings } = require('./utils/windows')
 
-function loadMain() {
+function init() {
   const window = new BrowserWindow({
-    width: 1920,
-    height: 1080,
+    width: 1200,
+    height: 750,
     frame: false,
     roundedCorners: true,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -28,11 +25,14 @@ ipcMain.on('new-project', e => {
     properties: ['openDirectory']
   }).then(data => {
     if (data.canceled) e.sender.send('selection-cancled')
-    console.log(data.filePaths[0] == undefined ? data.filePaths : null)
-    e.sender.send('file-selected', data.filePaths[0])
+    else {
+      console.log(data.filePaths[0])
+      settings()
+      e.sender.send('file-selected', data.filePaths[0])
+    }
   })
 })
 
-app.on('ready', () => process.platform == 'darwin' ? app.dock.setMenu(macDockMenu) : null ).on('ready', loadMain)
-app.on('activate', () => BrowserWindow.getAllWindows().length == 0 ? loadMain : null)
+app.on('ready', () => process.platform == 'darwin' ? app.dock.setMenu(macDockMenu) : null ).on('ready', init)
+app.on('activate', () => BrowserWindow.getAllWindows().length == 0 ? init() : null)
 app.on('window-all-closed', () => process.platform != 'darwin' ? app.quit() : null)

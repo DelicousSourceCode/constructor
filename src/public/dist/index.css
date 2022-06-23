@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 400;
   src: url(https://example.com/MaterialIcons-Regular.eot);
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"), url(https://example.com/MaterialIcons-Regular.woff) format("woff"), url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
+  src: local("Material Icons"), local("MaterialIcons-Regular");
 }
 .material-icons {
   font-family: "Material Icons";
@@ -84,7 +84,7 @@ body {
   border: 2pt solid #171717;
 }
 .titlebar .close-window:active {
-  background-color: #c2c2c2;
+  background-color: #d1d1d1;
   transition: none;
 }
 
@@ -107,6 +107,10 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 30pt;
+}
+.logogroup .logo {
+  width: initial;
+  height: 350pt;
 }
 
 .toolbar {
@@ -144,8 +148,43 @@ body {
   cursor: pointer;
 }
 .project-menu .btn:active {
-  background-color: #c2c2c2;
+  background-color: #d1d1d1;
   transition: none;
+}
+
+.types-container {
+  width: 40vw;
+  height: 100vw;
+  border-right: 5pt solid #171717;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.types-container .heading {
+  padding: 8pt 0pt;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  font-size: 15pt;
+}
+.types-container .opt {
+  width: 100%;
+  height: 40pt;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 150ms ease-in;
+  cursor: pointer;
+}
+.types-container .opt:hover {
+  background-color: #d1d1d1;
 }
 
 /*# sourceMappingURL=index.css.map */

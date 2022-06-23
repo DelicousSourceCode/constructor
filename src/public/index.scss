@@ -7,10 +7,7 @@
   font-weight: 400;
   src: url(https://example.com/MaterialIcons-Regular.eot);
   src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
-    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
-    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+    local('MaterialIcons-Regular');
 }
 
 .material-icons {
@@ -113,6 +110,10 @@ body {
     align-items: center;
     font-size: 30pt;
   }
+  .logo {
+    width: initial;
+    height: 350pt;
+  }
 }
 
 .toolbar {
@@ -150,6 +151,40 @@ body {
     &:active {
       background-color: vars.$light;
       transition: none;
+    }
+  }
+}
+
+.types-container {
+  width: 40vw;
+  height: 100vw;
+  border-right: 5pt solid vars.$darker;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  .heading {
+    padding: 8pt 0pt;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+    font-size: 15pt;
+  } .opt {
+    width: 100%;
+    height: 40pt;
+    background-color: vars.$lighter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: vars.$t;
+    cursor: pointer;
+    &:hover {
+      background-color: vars.$light;
     }
   }
 }

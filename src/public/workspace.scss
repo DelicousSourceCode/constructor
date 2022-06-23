@@ -1,0 +1,42 @@
+// Language: scss
+@use 'vars';
+@use 'mixins';
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11pt;
+}
+
+:root {
+  --lighter: #f0f0f0;
+  --light: #e7e7e7;
+  --medium: #b3b3b3;
+  --dark: #4d4d4d;
+  --darker: #2f2f2f;
+  --primary: #00a8ff;
+  --secondary: #00d8ff;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.toolbar {
+  width: 100%;
+  height: 40pt;
+  background-color: var(--lighter);
+  border-bottom: 1px solid var(--light);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
